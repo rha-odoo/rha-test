@@ -1,0 +1,21 @@
+<odoo>
+    <data>
+        <record id="view_sale_order_form_inherited_jar" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.jar</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_quotation_send']" position="replace"/>
+                <xpath expr="//button[@name='action_quotation_send']" position="replace">
+                    <field name="x_studio_order_type" invisible="1"/>
+                    <button name="action_quotation_send" string="Print" type="object" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('x_studio_order_type', '=', 'Sales Contract')]}" class="btn-primary o_sale_print"/>
+                    <button name="action_quotation_send" string="Print" type="object" attrs="{'invisible': ['|', ('state', 'not in', ['sent', 'sale']), ('x_studio_order_type', '=', 'Sales Contract')]}" class="o_sale_print"/>
+
+                    <!-- Change button name if order type is 'Sales Contract' Label 'Print' to 'SEND TO ACCOUNTING' -->
+                    <button name="action_quotation_send" string="SEND TO ACCOUNTING" type="object" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('x_studio_order_type', '!=', 'Sales Contract')]}" class="btn-primary o_sale_print"/>
+                    <button name="action_quotation_send" string="SEND TO ACCOUNTING" type="object" attrs="{'invisible': ['|', ('state', 'not in', ['sent', 'sale']), ('x_studio_order_type', '!=', 'Sales Contract')]}" class="o_sale_print"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

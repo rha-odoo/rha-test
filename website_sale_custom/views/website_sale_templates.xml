@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="products_inherit_jar" inherit_id="website_sale.products" name="Products - custom - jar">
+		<xpath expr="//div[@id='oe_structure_website_sale_products_2']" position="before">
+			<section class="s_text_block pt8 pb4 oe_custom_bg">
+        		<div class="container">
+          			<div class="row">
+            			<div class="pb0 pt16 col-lg-11">
+              				<p>All of our products are <font style="color: rgb(57, 132, 198);"><b>FDA</b></font>&amp;nbsp;and <b>CE</b> Approved.&amp;nbsp;</p>
+            			</div>
+          			</div>
+        		</div>
+      		</section>
+      		<section class="s_faq_collapse pt0 pb8" style="">
+        		<div class="container">
+          			<div class="row s_col_no_bgcolor">
+            			<div class="col-lg-12 pb16 pt0">
+              				<div id="myCollapse" class="accordion" role="tablist">
+                				<div class="card bg-white">
+                  					<a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="card-header collapsed" data-parent="#myCollapse" data-target="#myCollapseTab1588940578326" data-original-title="" title="" aria-describedby="tooltip923677">What if a product is <b data-original-title="" title="" aria-describedby="tooltip547287">Out of stock</b>?</a>
+                  					<div class="collapse" role="tabpanel" id="myCollapseTab1588940578326" style="">
+                    					<div class="card-body">
+                      						<p class="card-text">&amp;nbsp;The market for PPE products is dynamic and volatile hence inventory levels are changing on an hourly basis.&amp;nbsp; Please contact us on the below given details if something is out of stock so that we may work on accommodating your order.</p>
+                      						<p class="card-text">&amp;nbsp; <span class="fa fa-phone" style=""/>&amp;nbsp;+1 855-843-142&amp;nbsp; &amp;nbsp;<span class="fa fa-envelope-o" style="" data-original-title="" title="" aria-describedby="tooltip641289"/>&amp;nbsp;medical@y-not.com</p>
+                      						<div class="s_btn pt16 pb16 text-left" data-name="Buttons">
+                        						<a href="/inquiry" class="btn btn-sm btn-primary" data-original-title="" title="" aria-describedby="tooltip930470">Send us a message</a>
+                      						</div>
+	                    				</div>
+                  					</div>
+                				</div>
+                				<div class="card bg-white">
+                  					<a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="card-header collapsed" data-parent="#myCollapse" data-original-title="" title="" aria-describedby="tooltip923677" data-target="#myCollapseTab1588941539508">Is your organisation <b data-original-title="" title="" aria-describedby="tooltip959438">Tax exempt</b><span data-original-title="" title="" aria-describedby="tooltip959438">?</span></a>
+                  					<div class="collapse" role="tabpanel" style="" id="myCollapseTab1588941539508">
+                    					<div class="card-body">
+                      						<p class="card-text">If your organisation is recognised as Tax Exempt by the IRS, you can send us your Tax Exempt Letter. Once verified, you will be able to complete your order tax free.</p>
+                      						<p class="card-text">
+                        						<b>How to upload your Tax Exempt Letter:</b>
+                      						</p>
+                      						<ol>
+                        						<li>
+                          							<p class="card-text">Create an account with us by <a href="https://www.y-notmedical.com/web/signup">signing up on the website.</a></p>
+                        						</li>
+                    							<li>
+                          							<p class="card-text">Go to your account and upload the document.</p>
+                        						</li>
+                        						<li>
+                          							<p class="card-text">We will get in touch with you within 24hours.</p>
+                        						</li>
+                      						</ol>
+                    					</div>
+                  					</div>
+                				</div>
+                				<div class="card bg-white">
+                  					<a href="#" role="tab" data-toggle="collapse" aria-expanded="false" class="card-header collapsed" data-parent="#myCollapse" data-target="#myCollapseTab1588940578327" data-original-title="" title="" aria-describedby="tooltip313409">Want to place a <b data-original-title="" title="" aria-describedby="tooltip146052">Bulk Order</b><span data-original-title="" title="" aria-describedby="tooltip146052">?</span></a>
+                  					<div class="collapse" role="tabpanel" id="myCollapseTab1588940578327" style="">
+                    					<div class="card-body">
+                      						<p class="card-text">If you wish to place a bulk order, please get in touch with us.</p>
+                      						<div class="pb16 pt16 s_btn text-left" data-name="Buttons">
+                        						<a href="/bulkorders" class="btn btn-sm btn-primary" target="_blank" data-original-title="" title="" aria-describedby="tooltip994709">Bulk inquiries</a>
+                      						</div>
+                    					</div>
+                  					</div>
+                				</div>
+              				</div>
+            			</div>
+          			</div>
+        		</div>
+      		</section>
+		</xpath>
+	</template>
+</odoo>
