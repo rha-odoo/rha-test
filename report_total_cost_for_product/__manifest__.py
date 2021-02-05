@@ -4,7 +4,6 @@
     'name': 'Total Product Cost Report',
     'category': 'customisation',
     'summary': 'Report',
-    'version':'14.0',
     'depends': [
         'account_accountant',
         'account_custom',

@@ -4,7 +4,6 @@
     'name': 'Account Report - Customize',
     'category': 'customisation',
     'summary': 'Report',
-    'version': '14.0',
     'depends': [
         'account',
         'account_reports',

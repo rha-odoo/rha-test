@@ -4,7 +4,6 @@
     'name': 'Orbyo analytics',
     'category': 'customisation',
     'summary': 'Orbyo analytics added script in website pages for google tag manager.',
-    'version': '14.0',
     'depends': [
         'web',
         'website',

@@ -6,7 +6,7 @@
         Customised invoice report""",
 
     'category': 'Uncategorized',
-    'version': '14.0',
+    'version': '1.0',
 
     'depends': ['base','account_accountant','sale_management'],
     'data': [
