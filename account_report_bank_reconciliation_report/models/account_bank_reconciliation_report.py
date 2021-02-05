@@ -9,8 +9,8 @@ class account_bank_reconciliation_report(models.AbstractModel):
     _inherit = 'account.bank.reconciliation.report'
 
     @api.model
-    def _get_statement_report_lines(self, options, journal):
-        rslt = super(account_bank_reconciliation_report, self)._get_statement_report_lines(options, journal)
+    def _get_payment_report_lines(self, options, journal):
+        rslt = super(account_bank_reconciliation_report, self)._get_payment_report_lines(options, journal)
         journal_id = self._context.get('active_id') or options.get('active_id')
         # Bank statement lines reconciled with a payment
         for i in rslt[0]: 
@@ -61,7 +61,7 @@ class account_bank_reconciliation_report(models.AbstractModel):
         lines = super(account_bank_reconciliation_report, self)._get_lines(options, line_id)
         # Fetch data
         journal = self.env['account.journal'].browse(options['active_id'])
-        report_data = self._get_statement_report_lines( options, journal)
+        report_data = self._get_payment_report_lines( options, journal)
 
         for bda in report_data[0]:
             if bda.get('reconciled_st_positive') or bda.get('reconciled_st_negative'):
