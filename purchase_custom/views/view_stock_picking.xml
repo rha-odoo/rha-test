@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <!-- Inherit transfer form -->
+        <record id="inherit_view_picking_form_rrt" model="ir.ui.view">
+            <field name="name">stock.picking.form.inherit.rrt</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="internal_purchase_order" attrs="{'invisible': [('picking_type_code', '=', 'incoming')]}"/>
+                </xpath>
+            </field> 
+        </record>
+
+        <!-- Inherit operation types form -->
+        <record id="inherit_operation_type_form_rrt" model="ir.ui.view">
+            <field name="name">stock.picking.type.inherit.form.rrt</field>
+            <field name="model">stock.picking.type</field>
+            <field name="inherit_id" ref="stock.view_picking_type_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='sequence_code']" position="after">
+                    <field name="operation_receipt" attrs="{'invisible': [('code', '!=', 'internal')]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+factory_audit_user_facutory_audito,Factory Audit group_user,y_not_design_qc_custom.model_x_factory_audit,base.group_user,1,0,0,0
+factory_audit_system,Factory Audit group_system,y_not_design_qc_custom.model_x_factory_audit,base.group_system,1,1,1,1
+factory_audit_user,Factory Audit Quality,y_not_design_qc_custom.model_x_factory_audit,quality.group_quality_user,1,1,1,1

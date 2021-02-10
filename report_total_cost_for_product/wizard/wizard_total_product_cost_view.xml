@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="view_total_product_cost" model="ir.ui.view">
+		<field name="name">wizard.total.cost.for.product.custom.jar</field>
+		<field name="model">wizard.product.total.cost</field>
+		<field name="arch" type="xml">
+			<form string="Total Cost for Product">
+				<sheet>
+					<group>
+						<group>
+							<field name="product_ids" widget="many2many_tags"/>
+						</group>
+					</group>
+					<group>
+						<group>
+                            <field name="datas" filename="datas_fname" readonly="1" attrs="{'invisible': [('datas', '=', False)]}"/>
+                            <field name="datas_fname" invisible="1" class="oe_inline oe_right"/>
+                        </group>
+					</group>
+				</sheet>
+				<footer>
+                    <button name="print" type="object" string="Print" class="oe_highlight" attrs="{'invisible': [('datas', '!=', False)]}"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_wizard_total_product_cost" model="ir.actions.act_window">
+		<field name="name">wizard.total.cost.for.product.custom.jar</field>
+		<field name="res_model">wizard.product.total.cost</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+	</record>
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_factory_audit_form_jar" model="ir.ui.view" >
+        <field name="name">factory.audit.form.custom.jar</field>
+        <field name="model">x_factory_audit</field>
+        <field name="arch" type="xml">
+            <form string="Factory Audit">
+                <header>
+                </header>
+                <sheet>
+                    <!-- <h1>
+                        <label string="Name" for="x_name"/>
+                    </h1>
+                    <group>
+                        <field name="x_name" required="1"/>
+                    </group> -->
+                    <group>
+                        <group>
+                            <field name="x_vendor" string="Vendor" domain="[[&quot;supplier_rank&quot;,&quot;=&quot;,1]]"/>
+                            <field name="x_audit_score" string="Audit score"/>
+                            <field name="x_audit_date" string="Audit Date"/>
+                            <field name="x_result" string="Result"/>
+                            <field name="x_third_party_vendor" string="Ispected By"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="x_factory_audit_tree_jar" model="ir.ui.view">
+        <field name='name'>factory.audit.tree.custom.jar</field>
+        <field name='model'>x_factory_audit</field>
+        <field name='arch' type='xml'>
+            <tree string="Factory Audit">
+                <field name="x_name" invisible="1"/>
+                <field name="x_vendor"/>
+                <field name="x_audit_date"/>
+                <field name="x_audit_score"/>
+                <field name="x_third_party_vendor" string="Audited By"/>
+                <field name="x_result"/>
+                <field name="x_last_audit_date" string="Next Audit Date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_factory_audit_custom" model="ir.actions.act_window">
+        <field name="name">Factory Audit</field>
+        <field name="res_model">x_factory_audit</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="view_type">form</field> -->
+    </record>
+
+    <menuitem id="menu_factory_audit" name="Factory Audit" parent="quality_control.menu_quality_configuration" action="y_not_design_qc_custom.action_factory_audit_custom" sequence="4"/>
+</odoo>

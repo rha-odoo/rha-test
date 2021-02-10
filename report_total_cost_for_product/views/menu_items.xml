@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+	<menuitem id="menu_total_cost_for_product_jar" name="Total Cost for Product" parent="account.menu_finance_reports" action="action_wizard_total_product_cost"/>
+
+</odoo>

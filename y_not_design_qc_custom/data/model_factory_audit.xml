@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="model_x_factory_audit" model="ir.model">
+        <field name="model">x_factory_audit</field>
+        <field name="name">Factory Audit</field>
+        <field name="is_mail_thread" eval="True"/>
+        <field name="transient" eval="False"/>
+    </record>
+</odoo>

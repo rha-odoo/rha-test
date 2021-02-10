@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_saleorder_document_inherit_jar" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//t[@t-set='address']" position="replace"/>
+
+        <xpath expr="//h2" position="replace">
+            <h2>
+                <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+                    <span t-if="doc.state not in ['draft','sent']">Order # </span>
+                    <span t-if="doc.state in ['draft','sent']">
+                        <t t-if="not doc.x_studio_is_order_label">Quotation # </t>
+                        <t t-if="doc.x_studio_is_order_label">Sale Order </t>
+                    </span>
+                </t>
+                <t t-if="env.context.get('proforma', False) or is_pro_forma">
+                    <span>Pro-Forma Invoice # </span>
+                </t>
+                <span t-field="doc.name"/>
+            </h2>
+        </xpath>
+
+
+        <xpath expr="//div[hasclass('page')]" position="before">
+            <t t-set="address">
+                <strong>Attention To : <span t-field="doc.partner_shipping_id.name"/></strong><br/>
+                <strong>Shipping address:</strong>
+                <div t-field="doc.partner_shipping_id.parent_id.name"/>
+                <div t-field="doc.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                <!-- <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/> -->
+                <!-- <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p> -->
+            </t>
+            <t t-set="information_block">
+                <strong>Attention To : <span t-field="doc.partner_invoice_id.name"/></strong><br/>
+                 <strong>Invoicing address:</strong>
+                <div t-field="doc.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+            </t>
+        </xpath>
+
+        <xpath expr="//div[@t-if=&quot;doc.date_order and doc.state not in ['draft','sent']&quot;]/p" position="attributes">
+            <attribute name="t-options">{'widget': 'date'}</attribute>
+        </xpath>
+
+        <xpath expr="//div[@t-if=&quot;doc.date_order and doc.state in ['draft','sent']&quot;]/p" position="attributes">
+            <attribute name="t-options">{'widget': 'date'}</attribute>
+        </xpath>
+
+        <xpath expr="//div[@id='informations']" position="inside">
+            <div t-if="doc.x_studio_vessel.x_name" class="col-auto mw-100 mb-2">
+                <strong>Vassel No:</strong>
+                <p class="m-0" t-field="doc.x_studio_vessel.x_name"/>
+            </div>
+        </xpath>
+
+        <!-- Email of salesperson -->
+        <xpath expr="//div[@t-if='doc.user_id.name']//p[@t-field='doc.user_id']" position="after">
+            <p class="m-0" t-field="doc.user_id.email"/>
+        </xpath>
+
+        <!-- Added new column in table -->
+        <xpath expr="//table[hasclass('o_main_table')]/thead/tr/th" position="before">
+            <th>Item #</th>
+        </xpath>
+        <xpath expr="//table[hasclass('o_main_table')]/tbody/t[@t-foreach='doc.order_line']/tr/t[@t-if='not line.display_type']/td" position="before">
+            <td>
+                <span t-field="line.product_id.x_studio_y_not_reference"/>
+                <div t-field="line.product_id.name"/>
+            </td>
+        </xpath>
+
+        <xpath expr="//table[hasclass('o_main_table')]/tbody/t[@t-foreach='doc.order_line']/tr/t[@t-if='not line.display_type']/td" position="inside">
+            <div>
+                <img t-if="line.product_id.image_1024" t-att-src="image_data_uri(line.product_id.image_1024)" style="max-width: 215px;"/>
+            </div>
+        </xpath>
+
+        <xpath expr="//table[hasclass('o_main_table')]/tbody/t[@t-foreach='doc.order_line']/tr/t[@t-if='not line.display_type']//td//span[@t-field='line.product_uom_qty']" position="attributes">
+            <attribute name="t-options">{'widget': 'integer'}</attribute>
+        </xpath>
+
+        <!-- Remove Taxes Column -->
+        <xpath expr="//table[hasclass('o_main_table')]/thead/tr/th[text()='Taxes']" position="replace"/>
+        <xpath expr="//table[hasclass('o_main_table')]/tbody/t[@t-foreach='doc.order_line']/tr/t[@t-if='not line.display_type']/td[6]" position="replace"/>
+    </template>
+</odoo>

@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<odoo>
+    <template id="portal_my_home_inherit_jar" inherit_id="portal.portal_my_home">
+        <xpath expr="//div[@id='oe_structure_portal_my_home_2']" position="after">
+            <form action="/website/action/submit_file" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                <div class="row form-group form-field o_website_form_required_custom">
+                    <div class="col-md-8 text-md-left" style="">
+                        <label class="col-form-label" for="datas"> Upload your document </label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="file" class="form-control o_website_form_input" name="tax_exemption_document"/>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary float-right mb32 ">Submit
+                    <span class="fa fa-long-arrow-right"/>
+                </button>
+            </form>
+        </xpath>
+    </template>
+
+    <template id="product_custom_inherited_jar" inherit_id="website_sale.product">
+        <xpath expr="//input[@name='product_id']" position="after">
+            <t t-set="max_qty" t-value="product_variant.sudo().qty_available - product_variant.sudo().outgoing_qty"/>
+            <t t-if="max_qty &lt;= 0">
+                <t t-set="max_qty" t-value="1"/>
+            </t>
+            <input type="hidden" class="max_qty" name="max_qty" t-att-value="max_qty"/>
+        </xpath>
+    </template>
+
+    <template id="product_quantity_inherited_jar" inherit_id="website_sale.product_quantity">
+        <xpath expr="//input[@name='add_qty']" position="attributes">
+            <attribute name="t-att-data-max">max_qty</attribute>
+        </xpath>
+    </template>
+
+    <template id="assets_frontend_inherited_jar" inherit_id="website_sale_stock.assets_frontend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/y_not_design_website_custom/static/src/js/website_sale_stock_custom.js"/>
+        </xpath>
+    </template>
+
+    <template id="cart_lines_inherited_jar" inherit_id="website_sale.cart_lines">
+        <xpath expr="//table[@id='cart_products']/tbody/t[@t-foreach='website_sale_order.website_order_line']/tr/td[hasclass('td-qty')]//input" position="before">
+            <t t-set="max_qty" t-value="line.product_id.qty_available - line.product_id.outgoing_qty"/>
+            <t t-if="max_qty &lt;= 0">
+                <t t-set="max_qty" t-value="1"/>
+            </t>
+        </xpath>
+
+        <xpath expr="//table[@id='cart_products']/tbody/t[@t-foreach='website_sale_order.website_order_line']/tr/td[hasclass('td-qty')]//input" position="attributes">
+            <attribute name="t-att-data-max">max_qty</attribute>
+        </xpath>
+    </template>
+
+    <!-- ID: 2267631 -->
+    <template id="cart_inherited_jar" inherit_id="website_sale.cart">
+        <xpath expr="//div[hasclass('oe_cart')]/div/div/a[@t-if='website_sale_order and website_sale_order.website_order_line']" position="replace">
+            <t t-if="not request.website.is_public_user()">
+                <a role="button" t-if="website_sale_order and website_sale_order.website_order_line" class="btn btn-primary float-right d-none d-xl-inline-block" href="/shop/checkout?express=1">
+                    <span class="">Process Checkout</span>
+                    <span class="fa fa-chevron-right"/>
+                </a>
+            </t>
+            <t t-if="request.website.is_public_user()">
+                <a class="btn btn-primary float-right d-none d-xl-inline-block" href="/web/signup">Sign up</a>
+            </t>
+        </xpath>
+    </template>
+</odoo>
