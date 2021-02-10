@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_invoice_form_inherit_jar" model="ir.ui.view">
+            <field name="name">account.invoice.form.inherit.jar</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_reference']" position="after">
+                    <field name="is_cruise_lines"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_account_form_inherit_jar" model="ir.ui.view">
+            <field name="name">account.account.form.inherit.jar</field>
+            <field name="model">account.account</field>
+            <field name="inherit_id" ref='account.view_account_form'/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='deprecated']" position="after">
+                    <field name="is_interim"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="account_move_line_form_jar" model="ir.ui.view">
+            <field name="name">account.move.line.form.inherited.jar</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_move_line_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='move_id']" position="after">
+                    <field name="sales_qty"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_move_form_inherit_jar" model="ir.ui.view">
+            <field name="name">account.move.form.inherit.jar</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='line_ids']/tree//field[@name='debit']" position="before">
+                    <field name="sales_qty"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

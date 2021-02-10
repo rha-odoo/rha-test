@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<!-- Sale Order Fields -->
+		<record id="compute_open_balance_sza" model="ir.model.fields">
+			<field name="name">x_open_balance</field>
+			<field name="model_id" ref="sale.model_sale_order"/>
+			<field name="field_description">Open balance</field>
+			<field name="ttype">monetary</field>
+			<field name="store" eval="True"/>
+			<field name="readonly" eval="True"/>
+			<field name="required" eval="False"/>
+		</record>
+
+		<record id="y_not_design_calculated_fields.compute_open_balance_sza" model="ir.model.fields">
+			<field name="depends">order_line.price_subtotal,order_line.untaxed_amount_invoiced</field>
+			<field name="compute">
+for record in self:
+	open_balance = 0
+
+	for line in record.order_line:
+		open_balance += (line.price_subtotal - line.untaxed_amount_invoiced)
+
+	record.update({'x_open_balance': open_balance})
+			</field>
+		</record>
+
+		<!-- Purchase Order Line fields -->
+		<record id="compute_balance_qty_sza" model="ir.model.fields">
+			<field name="name">x_balance_qty</field>
+			<field name="model_id" ref="purchase.model_purchase_order_line"/>
+			<field name="field_description">Balance Qty</field>
+			<field name="ttype">float</field>
+			<field name="store" eval="True"/>
+			<field name="readonly" eval="True"/>
+			<field name="required" eval="False"/>
+		</record>
+
+		<record id="y_not_design_calculated_fields.compute_balance_qty_sza" model="ir.model.fields">
+			<field name="depends">product_qty,qty_received</field>
+			<field name="compute">
+for record in self:
+	record['x_balance_qty'] = record.product_qty - record.qty_received
+			</field>
+		</record>
+	</data>
+</odoo>

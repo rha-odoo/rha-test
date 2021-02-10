@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="base_automation_product_id" model="base.automation">
+            <field name="name">Auto fill analytic account onchange of product - jar</field>
+            <field name="model_id" ref="account.model_account_move_line"/>
+            <field name="trigger">on_change</field>
+            <field name="state">code</field>
+            <field name="code">
+if record.product_id and record.product_id.product_tmpl_id:
+    analytic_account_id = env['account.analytic.account'].search([('x_studio_product', '=', record.product_id.product_tmpl_id.id)], limit=1)
+    if analytic_account_id:
+        record['account_analytic_id'] = analytic_account_id.id
+            </field>
+            <field name="trigger">on_change</field>
+            <field name="on_change_field_ids" eval="[(6,0,[ref('account.field_account_move_line__product_id')])]"/>
+            <field name="active" eval="True"/>
+        </record>
+
+        <record id="base_automation_auto_fill_analytic_account_so_to_invoice" model="base.automation">
+            <field name="name">Auto fill analytic account Invoice line is create - jar</field>
+            <field name="model_id" ref="account.model_account_move_line"/>
+            <field name="trigger">on_create</field>
+            <field name="state">code</field>
+            <field name="code">
+if not record.account_analytic_id:
+    if record.product_id and record.product_id.product_tmpl_id:
+        analytic_account_id = env['account.analytic.account'].search([('x_studio_product', '=', record.product_id.product_tmpl_id.id)], limit=1)
+        if analytic_account_id:
+            record['account_analytic_id'] = analytic_account_id.id
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="field_x_sale_order" model="ir.model.fields">
+        <field name="name">x_sale_order</field>
+        <field name="field_description">Sale Order</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="copied" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="relation">sale.order</field>
+        <field name="required" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">many2one</field>
+    </record>
+
+    <record id="field_x_customer_po_no" model="ir.model.fields">
+        <field name="name">x_customer_po_no</field>
+        <field name="field_description">Customer PO No</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="copied" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="related">x_sale_order.client_order_ref</field>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="field_x_issue_description" model="ir.model.fields">
+        <field name="name">x_issue_description</field>
+        <field name="field_description">Issue Description</field>
+        <field name="copied" eval="False"/>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="readonly" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">text</field>
+    </record>
+
+    <record id="field_x_root_cause_description" model="ir.model.fields">
+        <field name="name">x_root_cause_description</field>
+        <field name="field_description">Root Cause Description</field>
+        <field name="copied" eval="False"/>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="readonly" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">text</field>
+    </record>
+
+    <record id="field_x_product" model="ir.model.fields">
+        <field name="field_description">Product</field>
+        <field name="copied" eval="False"/>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_product</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation">product.product</field>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">many2one</field>
+    </record>
+
+    <record id="field_x_order_qty" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Order Qty</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_order_qty</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">float</field>
+    </record>
+
+    <record id="field_x_defect_qty" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Defect Qty</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_defect_qty</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">float</field>
+    </record>
+
+    <record id="field_x_claim_accepted_date" model="ir.model.fields">
+        <field name="name">x_claim_accepted_date</field>
+        <field name="field_description">Claim Accepted Date</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="copied" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">date</field>
+    </record>
+
+    <record id="field_x_commited_delivery_date" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Commited Delivery Date</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_commited_delivery_date</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">date</field>
+    </record>
+
+    <record id="field_x_status" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Status</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_status</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection">[["Open","Open"],["Close","Close"]]</field>
+        <field name="store" eval="True"/>
+        <field name="ttype">selection</field>
+    </record>
+
+    <record id="field_x_customer" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Customer</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_customer</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation">res.partner</field>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">many2one</field>
+    </record>
+
+    <record id="field_x_date" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Date</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_date</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">date</field>
+    </record>
+
+    <record id="field_x_description_file" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Document (file)</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_description_file</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">binary</field>
+    </record>
+
+    <record id="field_x_description_file_filename" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Document (file)</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_description_file_filename</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">char</field>
+    </record>
+  
+    <record id="field_x_completion_date" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Completion Date</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_completion_date</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">date</field>
+    </record>
+
+    <record id="field_x_document" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Document</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_document</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">binary</field>
+    </record>
+
+    <record id="fieldx_document_filename" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Filename for Document</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_document_filename</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="field_x_description" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Description</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_description</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="size" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">text</field>
+    </record>
+
+    <record id="field_x_field_goooF" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">New Date</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_field_goooF</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">date</field>
+    </record>
+
+    <record id="field_x_field_7JWcm" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">New File</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_field_7JWcm</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">binary</field>
+    </record>
+
+    <record id="field_x_field_7JWcm_filename" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Filename for x_studio_field_7JWcm</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_field_7JWcm_filename</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">char</field>
+    </record>
+  
+    <record id="field_x_field_Q7kR1" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">New Date</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_field_Q7kR1</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">date</field>
+    </record>
+  
+    <record id="field_x_field_hVONW" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">New File</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_field_hVONW</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">binary</field>
+    </record>
+
+    <record id="field_x_field_hVONW_filename" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Filename for x_studio_field_hVONW</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_field_hVONW_filename</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="field_x_scheduled_activity_date" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Scheduled Activity Date</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_scheduled_activity_date</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">date</field>
+    </record>
+
+    <record id="field_x_scheduled_activity_date_1" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Scheduled Activity Date</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_scheduled_activity_date_1</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">date</field>
+    </record>
+
+    <record id="field_x_date_2" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Date</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_date_2</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">date</field>
+    </record>
+
+    <record id="field_x_attachment" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Attachment</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_attachment</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">binary</field>
+    </record>
+
+    <record id="field_x_attachment_filename" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Filename for x_attachment_filename</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_attachment_filename</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="ttype">char</field>
+    </record>
+
+    <record id="field_x_attachment_1" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Attachment</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_attachment_1</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">binary</field>
+    </record>
+
+    <record id="field_x_attachment_1_filename" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Filename for x_attachment_1_filename</field>
+        <field name="model_id" ref="quality.model_quality_alert"/>
+        <field name="name">x_attachment_1_filename</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="view_company_form_inherit_jar" model="ir.ui.view">
+            <field name="name">res.company.form.inherit.jar</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page name="extra_info" string="Logo">
+                        <field name="logo_2" widget="image" class="oe_avatar"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

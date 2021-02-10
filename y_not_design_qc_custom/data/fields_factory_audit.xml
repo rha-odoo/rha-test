@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="model_x_factory_audit_field_x_name" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Name</field>
+        <field name="model_id" ref="y_not_design_qc_custom.model_x_factory_audit"/>
+        <field name="name">x_name</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">char</field>
+    </record>
+    <record id="model_x_factory_audit_field_x_vendor" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Vendor</field>
+        <field name="model_id" ref="y_not_design_qc_custom.model_x_factory_audit"/>
+        <field name="name">x_vendor</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation">res.partner</field>
+        <field name="required" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">many2one</field>
+    </record>
+    <record id="model_x_factory_audit_field_x_audit_score" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Audit score</field>
+        <field name="model_id" ref="y_not_design_qc_custom.model_x_factory_audit"/>
+        <field name="name">x_audit_score</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="tracking">100</field>
+        <field name="ttype">float</field>
+    </record>
+    <record id="model_x_factory_audit_field_x_audit_date" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Audit Date</field>
+        <field name="model_id" ref="y_not_design_qc_custom.model_x_factory_audit"/>
+        <field name="name">x_audit_date</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="tracking">100</field>
+        <field name="ttype">date</field>
+    </record>
+    <record id="model_x_factory_audit_field_x_result" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Result</field>
+        <field name="model_id" ref="y_not_design_qc_custom.model_x_factory_audit"/>
+        <field name="name">x_result</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection">[["Approved","Approved"],["Conditionally Approved","Conditionally Approved"],["Rejected","Rejected"]]</field>
+        <field name="size" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="tracking">100</field>
+        <field name="ttype">selection</field>
+    </record>
+    <record id="model_x_factory_audit_field_x_third_party_vendor" model="ir.model.fields">
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="field_description">Audited By</field>
+        <field name="model_id" ref="y_not_design_qc_custom.model_x_factory_audit"/>
+        <field name="name">x_third_party_vendor</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation">res.partner</field>
+        <field name="required" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="tracking">100</field>
+        <field name="ttype">many2one</field>
+    </record>
+    <record id="model_x_factory_audit_field_x_inspected_by" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Inspected By</field>
+        <field name="model_id" ref="y_not_design_qc_custom.model_x_factory_audit"/>
+        <field name="name">x_inspected_by</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation">res.users</field>
+        <field name="required" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">many2one</field>
+    </record>
+    <record id="model_x_factory_audit_field_x_audit_report" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Audit Report</field>
+        <field name="model_id" ref="y_not_design_qc_custom.model_x_factory_audit"/>
+        <field name="name">x_audit_report</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="size" eval="False"/>
+        <field name="state">manual</field>
+        <field name="store" eval="True"/>
+        <field name="ttype">binary</field>
+    </record>
+    <record id="model_x_factory_audit_field_x_field_0d2iF_filename" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Filename for x_studio_field_0d2iF</field>
+        <field name="model_id" ref="y_not_design_qc_custom.model_x_factory_audit"/>
+        <field name="name">x_field_0d2iF_filename</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">char</field>
+    </record>
+    <record id="model_x_factory_audit_field_x_audit_report_filename" model="ir.model.fields">
+        <field name="complete_name" eval="False"/>
+        <field name="compute" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="depends" eval="False"/>
+        <field name="field_description">Filename for x_audit_report</field>
+        <field name="model_id" ref="y_not_design_qc_custom.model_x_factory_audit"/>
+        <field name="name">x_audit_report_filename</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="ttype">char</field>
+    </record>
+    <record id="model_x_factory_audit_field_x_last_audit_date" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Next Audit Date</field>
+        <field name="model_id" ref="y_not_design_qc_custom.model_x_factory_audit"/>
+        <field name="name">x_last_audit_date</field>
+        <field name="on_delete" eval="False"/>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="tracking">100</field>
+        <field name="ttype">date</field>
+    </record>
+
+    <!-- Partner Fields -->
+    <record id="field_x_o2m_factory_audit" model="ir.model.fields">
+        <field name="copied" eval="False"/>
+        <field name="field_description">Audit</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_audit</field>
+        <field name="readonly" eval="False"/>
+        <field name="related" eval="False"/>
+        <field name="relation">x_factory_audit</field>
+        <field name="relation_field">x_vendor</field>
+        <field name="relation_table" eval="False"/>
+        <field name="required" eval="False"/>
+        <field name="selectable" eval="True"/>
+        <field name="selection" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="tracking">100</field>
+        <field name="ttype">one2many</field>
+    </record>
+</odoo>

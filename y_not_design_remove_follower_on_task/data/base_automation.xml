@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="action_remove_follower_on_task" model="ir.actions.server">
+        <field name="name">Remove Follower on Task for duplicate project - jar</field>
+        <field name="model_id" ref="project.model_project_project"/>
+        <field name="state">code</field>
+        <field name="code">
+# Remove Follower on project and tasks'
+for rec in records:
+    if rec.task_ids:
+        project_partner_ids = rec.message_partner_ids.ids + rec.env.user.partner_id.ids
+        task_partner_ids = rec.tasks.message_partner_ids.ids + rec.env.user.partner_id.ids
+        rec.message_unsubscribe(partner_ids=project_partner_ids)
+        rec.tasks.message_unsubscribe(partner_ids=task_partner_ids)
+        </field>
+    </record>
+</odoo>

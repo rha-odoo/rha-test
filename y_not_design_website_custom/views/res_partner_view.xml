@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_jar" model="ir.ui.view">
+        <field name="name">res.partner.form.custom.jar</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                <page name="studio_page_nXSsW" string="Attachment">
+                    <group name="group_one">
+                        <group name="group_one_one">
+                            <field filename="x_tax_exemption_filename" name="x_tax_exemption_file"/>
+                            <field invisible="1" name="x_tax_exemption_filename"/>
+                        </group>
+                        <group name="group_one_two"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_quality_task" model="ir.actions.act_window">
+        <field name="name">Quality Tasks</field>
+        <field name="res_model">project.task</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+        <field name="domain">[('stage_id','=',17)]</field>
+        <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                This is your new action ; by default, it contains a list view and a form view.
+            </p>
+            <p>
+                You can start customizing these screens by clicking on the Studio icon on the
+                top right corner (you can also customize this help message there).
+            </p>
+        ]]></field>
+    </record>
+
+    <menuitem id="quality_quality_task_menu" name="Quality Tasks" parent="quality_control.menu_quality_root" action="y_not_design_qc_custom.action_quality_task" sequence="2"/>
+
+
+    <!-- Vendors In Quality -->
+    <record id="action_quality_vendor" model="ir.actions.act_window">
+        <field name="name">Vendor</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="view_type">form</field> -->
+        <field name="domain">[('supplier_rank','=',1)]</field>
+        <field name="context">{'search_default_supplier': 1,'default_customer_rank': 0,'default_supplier_rank': 1, 'default_is_company': True}</field>
+    </record>
+
+    <menuitem id="quality_quality_vendors_menu" name="Vendors" parent="quality_control.menu_quality_configuration" action="y_not_design_qc_custom.action_quality_vendor" sequence="3"/>
+</odoo>

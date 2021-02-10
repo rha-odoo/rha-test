@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_partner_tree_inherit_jar" model="ir.ui.view">
+        <field name="name">res.partner.tree.custom.jar</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='display_name']" position="after">
+                <field name="state_id"/>
+                <field name="city"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="view_partner_form_inherit_jar" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.jar</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="page_facutory_audit" string="Factory Audit">
+                    <separator string="Audit"/>
+                    <field name="x_audit" string="Audit">
+                        <tree string="Factory Audit" editable="bottom">
+                            <field name="x_name" modifiers="{}" attrs="{}" invisible="1"/>
+                            <field name="x_vendor" attrs="{}" invisible="1"/>
+                            <field name="x_audit_date"/>
+                            <field name="x_inspected_by" string="Inspected By" invisible="1"/>
+                            <field name="x_third_party_vendor" string="Audited By"/>
+                            <field name="x_audit_score" string="Audit score (%)"/>
+                            <field name="x_result"/>
+                            <field name="x_last_audit_date" string="Next Audit Date"/>
+                            <field invisible="1" name="x_audit_report_filename"/>
+                            <field filename="x_audit_report_filename" name="x_audit_report" string="Audit Report" widget="binary"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<odoo>
+    <record model="ir.ui.view" id="view_order_form_inheited_sza">
+        <field name="name">view_order_form.custom.sza</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="payment_term_id" position="after">
+                <field  name="x_open_balance"/>
+            </field>
+        </field>
+    </record>
+</odoo>
