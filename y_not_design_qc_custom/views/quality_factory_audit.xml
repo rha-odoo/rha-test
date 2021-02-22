@@ -50,7 +50,6 @@
         <field name="name">Factory Audit</field>
         <field name="res_model">x_factory_audit</field>
         <field name="view_mode">tree,form</field>
-        <!-- <field name="view_type">form</field> -->
     </record>
 
     <menuitem id="menu_factory_audit" name="Factory Audit" parent="quality_control.menu_quality_configuration" action="y_not_design_qc_custom.action_factory_audit_custom" sequence="4"/>
