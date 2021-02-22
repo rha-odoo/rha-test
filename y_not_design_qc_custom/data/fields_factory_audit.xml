@@ -34,7 +34,7 @@
         <field name="relation" eval="False"/>
         <field name="required" eval="False"/>
         <field name="store" eval="True"/>
-        <field name="tracking">100</field>
+        <field name="tracking" eval="True"/>
         <field name="ttype">float</field>
     </record>
     <record id="model_x_factory_audit_field_x_audit_date" model="ir.model.fields">
@@ -47,7 +47,7 @@
         <field name="relation" eval="False"/>
         <field name="required" eval="False"/>
         <field name="store" eval="True"/>
-        <field name="tracking">100</field>
+        <field name="tracking" eval="True"/>
         <field name="ttype">date</field>
     </record>
     <record id="model_x_factory_audit_field_x_result" model="ir.model.fields">
@@ -63,7 +63,7 @@
         <field name="selection">[["Approved","Approved"],["Conditionally Approved","Conditionally Approved"],["Rejected","Rejected"]]</field>
         <field name="size" eval="False"/>
         <field name="store" eval="True"/>
-        <field name="tracking">100</field>
+        <field name="tracking" eval="True"/>
         <field name="ttype">selection</field>
     </record>
     <record id="model_x_factory_audit_field_x_third_party_vendor" model="ir.model.fields">
@@ -77,7 +77,7 @@
         <field name="relation">res.partner</field>
         <field name="required" eval="False"/>
         <field name="store" eval="True"/>
-        <field name="tracking">100</field>
+        <field name="tracking" eval="True"/>
         <field name="ttype">many2one</field>
     </record>
     <record id="model_x_factory_audit_field_x_inspected_by" model="ir.model.fields">
@@ -151,7 +151,7 @@
         <field name="selectable" eval="True"/>
         <field name="selection" eval="False"/>
         <field name="store" eval="True"/>
-        <field name="tracking">100</field>
+        <field name="tracking" eval="True"/>
         <field name="ttype">date</field>
     </record>
 
@@ -170,7 +170,7 @@
         <field name="selectable" eval="True"/>
         <field name="selection" eval="False"/>
         <field name="store" eval="True"/>
-        <field name="tracking">100</field>
+        <field name="tracking" eval="True"/>
         <field name="ttype">one2many</field>
     </record>
 </odoo>

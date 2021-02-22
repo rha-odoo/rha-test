@@ -10,7 +10,7 @@
         <field name="priority">90</field>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='title']" position="after">
-                <field name="x_customer" domain="[('customer', '=', True)]"/>
+                <field name="x_customer" domain="[('customer_rank', '&gt;', 0)]"/>
                 <field name="x_sale_order" domain="[('state','in', ['sale','done']), ('partner_id', '=', x_customer)]"/>
                 <field name="x_customer_po_no"/>
             </xpath>
