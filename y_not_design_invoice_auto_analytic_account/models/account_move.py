@@ -15,7 +15,7 @@ class AccountMoveLine(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            if not vals.get('analytic_account_id'):
+            if 'product_id' in vals and not vals.get('analytic_account_id'):
                 product_tmpl_id = self.env['product.product'].browse(vals['product_id']).product_tmpl_id
                 if vals.get('product_id') and product_tmpl_id:
                     analytic_account_id = self.env['account.analytic.account'].search([('x_studio_product', '=', product_tmpl_id.id)], limit=1)
